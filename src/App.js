@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Switch,Route} from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//引用组件
+// import Home from './views/Home';
+import Index from './views/login/Index'; 
+
+
+class App extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={};
+  }
+  render(){
+    return(
+      <div className="test">
+        <BrowserRouter>
+          <Switch>  {/*相同路径下只匹配一个*/}  
+              <Route component={Index} exact path="/"/>
+               
+          </Switch>
+        </BrowserRouter>
+      </div>
+    )
+  }
 }
+
 
 export default App;
